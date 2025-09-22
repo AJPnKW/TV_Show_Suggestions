@@ -1,0 +1,69 @@
+
+    Directory: C:\Users\Lenovo\PROJECTS\TV_Show_Suggestions
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          2025-09-18  6:34 PM                __pycache__
+d----          2025-09-18  6:28 PM                .ai.downloads
+d----          2025-09-18  6:33 PM                .venv
+d----          2025-09-18  6:48 PM                assets
+d----          2025-09-18  6:48 PM                backups
+d----          2025-09-18  6:48 PM                cache
+d----          2025-09-18  6:46 PM                data
+d----          2025-09-18  6:48 PM                docs
+d----          2025-09-18  6:47 PM                inputs
+d----          2025-09-18  6:48 PM                logs
+d----          2025-09-18  6:48 PM                outputs
+d----          2025-09-18  6:48 PM                reports
+d----          2025-09-18  6:50 PM                scripts
+d----          2025-09-18  6:28 PM                templates
+-a---          2025-09-18  7:16 PM              0 dir.txt
+-a---          2025-09-18  6:28 PM           1040 README.md
+-a---          2025-09-18  6:28 PM             43 requirements.t
+                                                  xt
+
+    Directory: C:\Users\Lenovo\PROJECTS\TV_Show_Suggestions\.ai.downloads
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          2025-09-18  6:28 PM                TV_Guide_GUI_S
+                                                  tarter
+-a---          2025-09-18  6:24 PM           9832 TV_Guide_GUI_S
+                                                  tarter.zip
+-a---          2025-09-18  2:11 PM          76568 TV-Guide-Dad-S
+                                                  andra_v3.html
+-a---          2025-09-18  6:23 PM           1823 TV-Guide-Sampl
+                                                  e_Offline.html
+
+
+    Directory: C:\Users\Lenovo\PROJECTS\TV_Show_Suggestions\data
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          2025-09-18  6:43 PM             74 personal_links
+                                                  .json
+-a---          2025-09-18  6:28 PM            161 sample_shows.t
+                                                  xt
+-a---          2025-09-18  6:44 PM            657 shows.txt
+-a---          2025-09-18  6:43 PM          28672 tv_cache.db
+
+    Directory: C:\Users\Lenovo\PROJECTS\TV_Show_Suggestions\scripts
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          2025-09-18  6:28 PM           5496 app.py
+-a---          2025-09-18  6:28 PM           7684 backend.py
+
+    Directory: C:\Users\Lenovo\PROJECTS\TV_Show_Suggestions\templates
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          2025-09-18  6:28 PM           7338 page.html.j2
+
+    Directory: C:\Users\Lenovo\PROJECTS\TV_Show_Suggestions\__pycache__
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          2025-09-18  6:34 PM          13568 backend.cpytho
+                                                  n-313.pyc
+

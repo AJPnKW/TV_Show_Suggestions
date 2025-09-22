@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TV Shows for Dad &amp; Sandra — Curated by Andrew</title>
+  <meta name="description" content="A TVMaze‑styled guide with detailed descriptions, ratings, and where‑to‑watch info." />
+  <style>
+    :root {
+      --teal: #1db9a5;
+      --teal-dark: #149382;
+      --bg: #f0f4f5;
+      --card: #C5E7E1; /* higher-contrast card background per request */
+      --text: #0f2a26; /* deep greenish for contrast on #C5E7E1 */
+      --sub: #334b47;  /* secondary text with adequate contrast */
+      --accent: #08332d;
+      --radius: 14px;
+      --shadow: 0 6px 18px rgba(0,0,0,.08);
+      --line: rgba(8,51,45,.18);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; line-height:1.48; }
+    a { color:var(--teal-dark); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    header { background:var(--teal); color:#fff; padding:18px 22px; position:sticky; top:0; z-index:10; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+    header .wrap { max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+    header h1 { margin:0; font-size:1.35rem; }
+    header p { margin:0; opacity:.95; }
+
+    main { max-width:1100px; margin:20px auto 60px; padding:0 16px; }
+    .intro { color:var(--sub); margin-bottom:14px; }
+
+    .filters { display:flex; gap:12px; flex-wrap:wrap; margin: 10px 0 18px; }
+    .filters .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .filters .label { font-weight:700; color:var(--sub); margin-right:4px; }
+    .chip, .svc, .svc span { color:var(--text); }
+    .chip { display:inline-flex; align-items:center; padding:6px 10px; border-radius:999px; background:#e1f2ef; border:1px solid var(--line); font-size:.9rem; }
+    .svc { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; background:#def4ef; border:1px solid var(--line); font-weight:700; }
+    button.filter { border:0; cursor:pointer; }
+    button.filter.active { background:var(--teal); color:#fff; }
+
+    .group { margin-top:28px; }
+    .group-title { font-size:1.1rem; color:#05302a; border-left:4px solid var(--teal); padding-left:10px; margin:0 0 10px; }
+
+    .cards { display:grid; grid-template-columns:1fr; gap:16px; }
+    .card { display:grid; grid-template-columns:140px 1fr; gap:16px; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:14px; align-items:start; border:1px solid var(--line); }
+    @media (max-width:560px) { .card { grid-template-columns:1fr; } }
+
+    .poster-wrap { width:140px; height:210px; border-radius:10px; background:linear-gradient(135deg, #7fd8ca, #4ea89c); display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; }
+    .title { margin:0; font-size:1.25rem; }
+    .tagline { color:var(--sub); display:flex; gap:8px; flex-wrap:wrap; }
+    .desc { margin:6px 0 8px; }
+
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 16px; }
+    .grid .label { display:block; font-size:.82rem; color:#093a33; opacity:.9; }
+    .grid .val { font-weight:700; }
+
+    .watch-where { display:flex; gap:18px; align-items:center; margin:8px 0 4px; }
+    .watch-where .label { font-weight:800; margin-right:6px; color:#0c4a42; }
+
+    .actions { display:flex; justify-content:space-between; align-items:center; margin-top:10px; gap:10px; }
+    .actions .left { display:flex; gap:8px; flex-wrap:wrap; }
+    .btn { display:inline-block; padding:8px 12px; border-radius:999px; font-weight:800; background:#e8faf6; border:1px solid var(--line); color:#073f37; }
+    .btn.primary { background:#0aa892; color:#fff; border-color:#079b86; }
+    .btn.ghost { background:#fff; color:#0b4038; }
+
+    footer { max-width:1100px; margin:28px auto; padding:0 16px; color:var(--sub); font-size:.92rem; }
+    .small { font-size:.88rem; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div style="font-weight:700;font-size:1.6rem;">📺</div>
+    <div>
+      <h1>TV Shows for Dad &amp; Sandra</h1>
+      <p class="small">Curated by Andrew · TVMaze‑style layout · long descriptions & ratings</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <p class="intro">Modern mysteries, detectives, dramas & a few standout comedies. Use the filters to sort by streaming service or genre. Ratings & availability can change by region.</p>
+
+  <div class="filters">
+    <div class="row" id="serviceRow"><span class="label">Service:</span></div>
+    <div class="row" id="genreRow"><span class="label">Genre:</span></div>
+  </div>
+
+  
+    <section class="group">
+      <h2 class="group-title">Detective / Mystery Picks</h2>
+      <div class="cards">
+        
+        <article class="card" data-service="prime" data-genres="crime, drama, mystery">
+          <div class="poster-wrap">
+            <div class="poster-fallback">B</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Bosch</h2>
+            <div class="tagline">
+              <span>Years: 2014–2021</span>
+              <span>&middot;</span>
+              <span># of Seasons: 7</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">Based on Michael Connelly’s novels: jazz‑loving LAPD homicide detective Harry Bosch follows the evidence through L.A.’s political shadows and police‑department politics. Cases tie into Bosch’s own past, and his strong moral compass keeps him charging ahead even when it costs him.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Prime Video</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Drama, Mystery</span></div>
+              <div><span class="label">Release</span><span class="val">2014</span></div>
+              <div><span class="label">Starring</span><span class="val">Titus Welliver, Jamie Hector, Amy Aquino</span></div>
+              <div><span class="label">Status</span><span class="val">Ended</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.primevideo.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#00a8e1"/><path d="M6 12h12" stroke="#fff" stroke-width="2"/><path d="M8 15c3 2 5 2 8-1" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Prime Video</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Prime Video</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Prime Video</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/bosch" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=vuVAP_4TQEY" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="freevee prime" data-genres="crime, drama, mystery">
+          <div class="poster-wrap">
+            <div class="poster-fallback">BL</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Bosch: Legacy</h2>
+            <div class="tagline">
+              <span>Years: 2022–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 3</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">Harry Bosch works as a private investigator and crosses paths—sometimes uneasily—with attorney Honey Chandler, while guiding his daughter Maddie as she learns the job as a rookie LAPD officer. Cold cases, new enemies, same Bosch resolve.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Amazon Freevee</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Drama, Mystery</span></div>
+              <div><span class="label">Release</span><span class="val">2022</span></div>
+              <div><span class="label">Starring</span><span class="val">Titus Welliver, Mimi Rogers, Madison Lintz</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.freevee.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#d5ff00"/><text x="6" y="16" font-size="10" fill="#000">fv</text></svg><span>Freevee</span></a> <a class="svc" href="https://www.primevideo.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#00a8e1"/><path d="M6 12h12" stroke="#fff" stroke-width="2"/><path d="M8 15c3 2 5 2 8-1" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Prime Video</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Freevee</span> <span class="chip">Prime Video</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Freevee</span> <span class="chip">Prime Video</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/bosch_legacy" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=RxHjLPDVSko" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="prime" data-genres="crime, drama, mystery">
+          <div class="poster-wrap">
+            <div class="poster-fallback">B</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Ballard</h2>
+            <div class="tagline">
+              <span>Years: 2025–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 10</span>
+            </div>
+            <p class="desc">Set in the Bosch universe: Detective Renée Ballard takes charge of the LAPD’s Cold Case Division, mixing gut instinct with fresh forensics—and leaning on volunteers (and the occasional Bosch assist) to unearth the truth.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Prime Video</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Drama, Mystery</span></div>
+              <div><span class="label">Release</span><span class="val">2025</span></div>
+              <div><span class="label">Starring</span><span class="val">Maggie Q, Titus Welliver</span></div>
+              <div><span class="label">Status</span><span class="val">New</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.primevideo.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#00a8e1"/><path d="M6 12h12" stroke="#fff" stroke-width="2"/><path d="M8 15c3 2 5 2 8-1" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Prime Video</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Prime Video</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Prime Video</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/ballard" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=Ballard+Prime+Video+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="hulu bbc" data-genres="crime, drama, thriller">
+          <div class="poster-wrap">
+            <div class="poster-fallback">L</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Luther</h2>
+            <div class="tagline">
+              <span>Years: 2010–2019</span>
+              <span>&middot;</span>
+              <span># of Seasons: 5</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 20</span>
+            </div>
+            <p class="desc">Idris Elba’s DCI John Luther is a brilliant detective whose empathy for monsters becomes a liability. Stylish, tense, and morally thorny—serial‑killer hunts collide with Luther’s own demons.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">BBC One</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Drama, Thriller</span></div>
+              <div><span class="label">Release</span><span class="val">2010</span></div>
+              <div><span class="label">Starring</span><span class="val">Idris Elba, Ruth Wilson</span></div>
+              <div><span class="label">Status</span><span class="val">Ended</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.hulu.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#1ce783"/><rect x="6" y="8" width="12" height="8" fill="#00311f"/></svg><span>Hulu</span></a> <a class="svc" href="https://www.bbc.co.uk/iplayer" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" fill="#000"/><rect x="3" y="6" width="6" height="12" fill="#fff"/><rect x="15" y="6" width="6" height="12" fill="#fff"/></svg><span>BBC</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Hulu</span></div>
+              <div><span class="label">Canada</span> <span class="chip">CBC Gem</span> <span class="chip">Prime Video</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/luther" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=irPcCNXji90" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="hulu disneyplus" data-genres="comedy, mystery">
+          <div class="poster-wrap">
+            <div class="poster-fallback">OMit</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Only Murders in the Building</h2>
+            <div class="tagline">
+              <span>Years: 2021–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 5</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">Cozy whodunnit meets comedy: three neighbors start a true‑crime podcast and find themselves in the middle of a real mystery—complete with red herrings, showbiz satire, and classic Martin/Short banter.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Hulu / Disney+</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Comedy, Mystery</span></div>
+              <div><span class="label">Release</span><span class="val">2021</span></div>
+              <div><span class="label">Starring</span><span class="val">Steve Martin, Martin Short, Selena Gomez</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">97%</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.hulu.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#1ce783"/><rect x="6" y="8" width="12" height="8" fill="#00311f"/></svg><span>Hulu</span></a> <a class="svc" href="https://www.disneyplus.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#113ccf"/><path d="M3 14c5-8 13-8 18-5" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Disney+</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Hulu</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Disney+</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/only_murders_in_the_building" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=eMHPkbn0hdM" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="netflix" data-genres="drama, biography, thriller">
+          <div class="poster-wrap">
+            <div class="poster-fallback">BR</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Baby Reindeer</h2>
+            <div class="tagline">
+              <span>Years: 2024</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 7</span>
+            </div>
+            <p class="desc">Raw, unsettling, and personal: an aspiring comedian’s act of kindness spirals into a stalking nightmare, pushing him to confront shame, trauma, and the need to be believed.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Netflix</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Drama, Biography, Thriller</span></div>
+              <div><span class="label">Release</span><span class="val">2024</span></div>
+              <div><span class="label">Starring</span><span class="val">Richard Gadd, Jessica Gunning</span></div>
+              <div><span class="label">Status</span><span class="val">Limited series</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.netflix.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#e50914"/><path d="M7 4h3l7 16h-3L7 4z" fill="#fff"/></svg><span>Netflix</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Netflix</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Netflix</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                <a class="btn ghost" href="https://www.netflix.com/search?q=Baby+Reindeer" target="_blank" rel="noopener">Watch on Netflix</a>
+                <a class="btn" href="https://www.rottentomatoes.com/tv/baby_reindeer" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=Baby+Reindeer+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="max" data-genres="drama, satire">
+          <div class="poster-wrap">
+            <div class="poster-fallback">TWL</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">The White Lotus</h2>
+            <div class="tagline">
+              <span>Years: 2021–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 3</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">A sharp resort satire where privilege, desire, and bad decisions collide. Each season brings a new locale and ensemble, with mystery elements simmering beneath the poolside sheen.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">HBO / Max</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Drama, Satire</span></div>
+              <div><span class="label">Release</span><span class="val">2021</span></div>
+              <div><span class="label">Starring</span><span class="val">Jennifer Coolidge, Aubrey Plaza (S2), Parker Posey (S3)</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.max.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#5a2dff"/><path d="M6 16V8l6 5 6-5v8" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Max</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Max</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Crave</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/the_white_lotus" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=PU8vqJVVp30" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="netflix" data-genres="mystery, drama, crime">
+          <div class="poster-wrap">
+            <div class="poster-fallback">TPC</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">The Perfect Couple</h2>
+            <div class="tagline">
+              <span>Years: 2024</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 6</span>
+            </div>
+            <p class="desc">On the eve of a lavish Nantucket wedding, a body is found—turning old money glamour into a tangle of motives, secrets, and suspects.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Netflix</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Mystery, Drama, Crime</span></div>
+              <div><span class="label">Release</span><span class="val">2024</span></div>
+              <div><span class="label">Starring</span><span class="val">Nicole Kidman, Liev Schreiber, Eve Hewson</span></div>
+              <div><span class="label">Status</span><span class="val">Limited series</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.netflix.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#e50914"/><path d="M7 4h3l7 16h-3L7 4z" fill="#fff"/></svg><span>Netflix</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Netflix</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Netflix</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                <a class="btn ghost" href="https://www.netflix.com/search?q=The+Perfect+Couple" target="_blank" rel="noopener">Watch on Netflix</a>
+                <a class="btn" href="https://www.rottentomatoes.com/tv/the_perfect_couple" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=The+Perfect+Couple+Netflix+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="netflix" data-genres="crime, mystery, comedy">
+          <div class="poster-wrap">
+            <div class="poster-fallback">TR</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">The Residence</h2>
+            <div class="tagline">
+              <span>Years: 2025–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">A fizzy White House whodunnit: after a state dinner goes sideways, an eccentric detective navigates 157 potential suspects within 132 rooms.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Netflix</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Mystery, Comedy</span></div>
+              <div><span class="label">Release</span><span class="val">2025</span></div>
+              <div><span class="label">Starring</span><span class="val">Uzo Aduba, Giancarlo Esposito</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">84%</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.netflix.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#e50914"/><path d="M7 4h3l7 16h-3L7 4z" fill="#fff"/></svg><span>Netflix</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Netflix</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Netflix</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                <a class="btn ghost" href="https://www.netflix.com/search?q=The+Residence" target="_blank" rel="noopener">Watch on Netflix</a>
+                <a class="btn" href="https://www.rottentomatoes.com/tv/the_residence" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=7sHEkN4M5dc" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="max" data-genres="crime, mystery, thriller">
+          <div class="poster-wrap">
+            <div class="poster-fallback">TDNC</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">True Detective: Night Country</h2>
+            <div class="tagline">
+              <span>Years: 2024</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 6</span>
+            </div>
+            <p class="desc">In the long Arctic night of Ennis, Alaska, two investigators dig into the disappearance of eight men—only to unearth older sins and personal reckonings.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">HBO / Max</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Mystery, Thriller</span></div>
+              <div><span class="label">Release</span><span class="val">2024</span></div>
+              <div><span class="label">Starring</span><span class="val">Jodie Foster, Kali Reis</span></div>
+              <div><span class="label">Status</span><span class="val">Limited series</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.max.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#5a2dff"/><path d="M6 16V8l6 5 6-5v8" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Max</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Max</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Crave</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/true_detective" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=True+Detective+Night+Country+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="hulu disneyplus" data-genres="mystery, thriller, drama">
+          <div class="poster-wrap">
+            <div class="poster-fallback">AMat</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">A Murder at the End of the World</h2>
+            <div class="tagline">
+              <span>Years: 2023</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 7</span>
+            </div>
+            <p class="desc">A Gen‑Z hacker‑sleuth at a secluded retreat must solve a death as a storm closes in; moody, modern, and conspiracy‑laced.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">FX / Hulu</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Mystery, Thriller, Drama</span></div>
+              <div><span class="label">Release</span><span class="val">2023</span></div>
+              <div><span class="label">Starring</span><span class="val">Emma Corrin, Clive Owen</span></div>
+              <div><span class="label">Status</span><span class="val">Limited series</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.hulu.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#1ce783"/><rect x="6" y="8" width="12" height="8" fill="#00311f"/></svg><span>Hulu</span></a> <a class="svc" href="https://www.disneyplus.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#113ccf"/><path d="M3 14c5-8 13-8 18-5" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Disney+</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Hulu</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Disney+</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/a_murder_at_the_end_of_the_world" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=A+Murder+at+the+End+of+the+World+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="netflix" data-genres="crime, drama, mystery">
+          <div class="poster-wrap">
+            <div class="poster-fallback">DQ</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Dept. Q</h2>
+            <div class="tagline">
+              <span>Years: 2025–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 9</span>
+            </div>
+            <p class="desc">Banished to a basement cold‑case unit, a brusque detective hand‑picks a team to tackle the forgotten crimes no one else will touch.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Netflix</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Drama, Mystery</span></div>
+              <div><span class="label">Release</span><span class="val">2025</span></div>
+              <div><span class="label">Starring</span><span class="val">Matthew Goode, Leah Byrne, Alexej Manvelov</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">88%</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">90%</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.netflix.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#e50914"/><path d="M7 4h3l7 16h-3L7 4z" fill="#fff"/></svg><span>Netflix</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Netflix</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Netflix</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                <a class="btn ghost" href="https://www.netflix.com/search?q=Dept.+Q" target="_blank" rel="noopener">Watch on Netflix</a>
+                <a class="btn" href="https://www.rottentomatoes.com/tv/dept_q" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=TsRn0aELpPQ" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="peacock" data-genres="documentary, history">
+          <div class="poster-wrap">
+            <div class="poster-fallback">LASf</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Lockerbie: A Search for Truth</h2>
+            <div class="tagline">
+              <span>Years: 2024</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">A meticulous docuseries revisit of the Pan Am 103 tragedy—following families and investigators who pushed for answers across decades.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Peacock</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-14</span></div>
+              <div><span class="label">Genre</span><span class="val">Documentary, History</span></div>
+              <div><span class="label">Release</span><span class="val">2024</span></div>
+              <div><span class="label">Starring</span><span class="val">Documentary</span></div>
+              <div><span class="label">Status</span><span class="val">Limited series</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.peacocktv.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#000"/><circle cx="8" cy="12" r="2" fill="#f5c518"/><circle cx="12" cy="12" r="2" fill="#00bcd4"/><circle cx="16" cy="12" r="2" fill="#e91e63"/></svg><span>Peacock</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Peacock</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Crave</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/lockerbie_a_search_for_truth" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=Lockerbie+A+Search+for+Truth+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+    <section class="group">
+      <h2 class="group-title">Also Like — Parents Might Too</h2>
+      <div class="cards">
+        
+        <article class="card" data-service="netflix" data-genres="action, thriller">
+          <div class="poster-wrap">
+            <div class="poster-fallback">TNA</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">The Night Agent</h2>
+            <div class="tagline">
+              <span>Years: 2023–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 2</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">A low‑level FBI agent answering a secret White House phone stumbles into a conspiracy stretching to the highest levels of power.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Netflix</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Action, Thriller</span></div>
+              <div><span class="label">Release</span><span class="val">2023</span></div>
+              <div><span class="label">Starring</span><span class="val">Gabriel Basso, Hong Chau</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.netflix.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#e50914"/><path d="M7 4h3l7 16h-3L7 4z" fill="#fff"/></svg><span>Netflix</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Netflix</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Netflix</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                <a class="btn ghost" href="https://www.netflix.com/search?q=The+Night+Agent" target="_blank" rel="noopener">Watch on Netflix</a>
+                <a class="btn" href="https://www.rottentomatoes.com/tv/the_night_agent" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=The+Night+Agent+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="netflix" data-genres="comedy, drama">
+          <div class="poster-wrap">
+            <div class="poster-fallback">B</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Beef</h2>
+            <div class="tagline">
+              <span>Years: 2023</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 10</span>
+            </div>
+            <p class="desc">After a road‑rage dust‑up, two strangers fixate on revenge in ways that get wilder, funnier, and more human than they expect.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Netflix</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Comedy, Drama</span></div>
+              <div><span class="label">Release</span><span class="val">2023</span></div>
+              <div><span class="label">Starring</span><span class="val">Steven Yeun, Ali Wong</span></div>
+              <div><span class="label">Status</span><span class="val">Limited series</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.netflix.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#e50914"/><path d="M7 4h3l7 16h-3L7 4z" fill="#fff"/></svg><span>Netflix</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Netflix</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Netflix</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                <a class="btn ghost" href="https://www.netflix.com/search?q=Beef" target="_blank" rel="noopener">Watch on Netflix</a>
+                <a class="btn" href="https://www.rottentomatoes.com/tv/beef" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=Beef+Netflix+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="hulu disneyplus" data-genres="comedy">
+          <div class="poster-wrap">
+            <div class="poster-fallback">MM</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Mid-Century Modern</h2>
+            <div class="tagline">
+              <span>Years: 2025–</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">A multigenerational comedy of manners set in a stylish home—expect banter, big feelings, and throwback vibes. (Placeholder summary)</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">ABC</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-PG</span></div>
+              <div><span class="label">Genre</span><span class="val">Comedy</span></div>
+              <div><span class="label">Release</span><span class="val">2025</span></div>
+              <div><span class="label">Starring</span><span class="val">Kirstie Alley? (placeholder)</span></div>
+              <div><span class="label">Status</span><span class="val">Upcoming</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.hulu.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#1ce783"/><rect x="6" y="8" width="12" height="8" fill="#00311f"/></svg><span>Hulu</span></a> <a class="svc" href="https://www.disneyplus.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#113ccf"/><path d="M3 14c5-8 13-8 18-5" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Disney+</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Hulu</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Disney+</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="#" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=Mid-Century+Modern+ABC+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="hulu disneyplus" data-genres="crime, comedy, drama">
+          <div class="poster-wrap">
+            <div class="poster-fallback">WC</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">White Collar</h2>
+            <div class="tagline">
+              <span>Years: 2009–2014</span>
+              <span>&middot;</span>
+              <span># of Seasons: 6</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 81</span>
+            </div>
+            <p class="desc">A suave con artist and the straight‑arrow FBI agent who caught him form an odd‑couple team to crack elegant crimes.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">USA Network</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-PG</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Comedy, Drama</span></div>
+              <div><span class="label">Release</span><span class="val">2009</span></div>
+              <div><span class="label">Starring</span><span class="val">Matt Bomer, Tim DeKay</span></div>
+              <div><span class="label">Status</span><span class="val">Ended</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.hulu.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#1ce783"/><rect x="6" y="8" width="12" height="8" fill="#00311f"/></svg><span>Hulu</span></a> <a class="svc" href="https://www.disneyplus.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#113ccf"/><path d="M3 14c5-8 13-8 18-5" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Disney+</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Hulu</span> <span class="chip">Disney+</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Disney+</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/white_collar" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=White+Collar+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="netflix" data-genres="crime, drama, thriller">
+          <div class="poster-wrap">
+            <div class="poster-fallback">O</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Ozark</h2>
+            <div class="tagline">
+              <span>Years: 2017–2022</span>
+              <span>&middot;</span>
+              <span># of Seasons: 4</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 44</span>
+            </div>
+            <p class="desc">Money laundering in the Ozarks upends a family’s life—turning lake country into a battlefield of cartels, local power brokers, and survival.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Netflix</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Drama, Thriller</span></div>
+              <div><span class="label">Release</span><span class="val">2017</span></div>
+              <div><span class="label">Starring</span><span class="val">Jason Bateman, Laura Linney, Julia Garner</span></div>
+              <div><span class="label">Status</span><span class="val">Ended</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.netflix.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#e50914"/><path d="M7 4h3l7 16h-3L7 4z" fill="#fff"/></svg><span>Netflix</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Netflix</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Netflix</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                <a class="btn ghost" href="https://www.netflix.com/search?q=Ozark" target="_blank" rel="noopener">Watch on Netflix</a>
+                <a class="btn" href="https://www.rottentomatoes.com/tv/ozark" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=Ozark+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="netflix" data-genres="drama, mystery, thriller">
+          <div class="poster-wrap">
+            <div class="poster-fallback">B</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Bodyguard</h2>
+            <div class="tagline">
+              <span>Years: 2018</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 6</span>
+            </div>
+            <p class="desc">A war veteran assigned to protect a controversial home secretary faces threats from outside and within—slick, tightly wound, and explosive.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">BBC One / Netflix</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Drama, Mystery, Thriller</span></div>
+              <div><span class="label">Release</span><span class="val">2018</span></div>
+              <div><span class="label">Starring</span><span class="val">Richard Madden, Keeley Hawes</span></div>
+              <div><span class="label">Status</span><span class="val">Limited series</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.netflix.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#e50914"/><path d="M7 4h3l7 16h-3L7 4z" fill="#fff"/></svg><span>Netflix</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Netflix</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Netflix</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                <a class="btn ghost" href="https://www.netflix.com/search?q=Bodyguard" target="_blank" rel="noopener">Watch on Netflix</a>
+                <a class="btn" href="https://www.rottentomatoes.com/tv/bodyguard" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=Bodyguard+BBC+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="hulu disneyplus" data-genres="crime, comedy, drama">
+          <div class="poster-wrap">
+            <div class="poster-fallback">HP</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">High Potential</h2>
+            <div class="tagline">
+              <span>Years: 2024–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 1</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">A brilliant single mom with an uncanny knack for pattern recognition partners with a by‑the‑book detective to solve crimes in unexpected ways.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">ABC / Hulu</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-14</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Comedy, Drama</span></div>
+              <div><span class="label">Release</span><span class="val">2024</span></div>
+              <div><span class="label">Starring</span><span class="val">Kaitlin Olson</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.hulu.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#1ce783"/><rect x="6" y="8" width="12" height="8" fill="#00311f"/></svg><span>Hulu</span></a> <a class="svc" href="https://www.disneyplus.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#113ccf"/><path d="M3 14c5-8 13-8 18-5" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Disney+</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Hulu</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Disney+</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/high_potential" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=High+Potential+ABC+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="max" data-genres="comedy, crime">
+          <div class="poster-wrap">
+            <div class="poster-fallback">TRG</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">The Righteous Gemstones</h2>
+            <div class="tagline">
+              <span>Years: 2019–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 3</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">Mega‑church dark comedy: the Gemstone televangelist family juggles faith branding, family feuds, and spectacular misbehavior.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">HBO / Max</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Comedy, Crime</span></div>
+              <div><span class="label">Release</span><span class="val">2019</span></div>
+              <div><span class="label">Starring</span><span class="val">Danny McBride, John Goodman, Edi Patterson</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.max.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#5a2dff"/><path d="M6 16V8l6 5 6-5v8" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Max</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Max</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Crave</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/the_righteous_gemstones" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=The+Righteous+Gemstones+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="netflix" data-genres="crime, mystery, thriller">
+          <div class="poster-wrap">
+            <div class="poster-fallback">L</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Lupin</h2>
+            <div class="tagline">
+              <span>Years: 2019–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 3</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">A gentleman thief inspired by Arsène Lupin pulls off Parisian capers to expose a powerful family’s lies—slick, charming, and family‑friendly‑ish.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Netflix</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-14</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Mystery, Thriller</span></div>
+              <div><span class="label">Release</span><span class="val">2021</span></div>
+              <div><span class="label">Starring</span><span class="val">Omar Sy</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.netflix.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#e50914"/><path d="M7 4h3l7 16h-3L7 4z" fill="#fff"/></svg><span>Netflix</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Netflix</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Netflix</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                <a class="btn ghost" href="https://www.netflix.com/search?q=Lupin" target="_blank" rel="noopener">Watch on Netflix</a>
+                <a class="btn" href="https://www.rottentomatoes.com/tv/lupin" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=Lupin+Netflix+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+    <section class="group">
+      <h2 class="group-title">Popular (On My List)</h2>
+      <div class="cards">
+        
+        <article class="card" data-service="hulu disneyplus" data-genres="drama, comedy">
+          <div class="poster-wrap">
+            <div class="poster-fallback">TB</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">The Bear</h2>
+            <div class="tagline">
+              <span>Years: 2022–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 3</span>
+              <span>&middot;</span>
+              <span>Total Episodes: 28</span>
+            </div>
+            <p class="desc">A chef retools a struggling Chicago sandwich shop into something worthy—kitchen chaos, found family, and exquisite food‑TV intensity.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">FX / Hulu</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Drama, Comedy</span></div>
+              <div><span class="label">Release</span><span class="val">2022</span></div>
+              <div><span class="label">Starring</span><span class="val">Jeremy Allen White, Ayo Edebiri, Ebon Moss‑Bachrach</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://www.hulu.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#1ce783"/><rect x="6" y="8" width="12" height="8" fill="#00311f"/></svg><span>Hulu</span></a> <a class="svc" href="https://www.disneyplus.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#113ccf"/><path d="M3 14c5-8 13-8 18-5" stroke="#fff" stroke-width="2" fill="none"/></svg><span>Disney+</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Hulu</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Disney+</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/the_bear" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=gBmkI4jlaIo" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="appletv" data-genres="sci‑fi, thriller, drama">
+          <div class="poster-wrap">
+            <div class="poster-fallback">S</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">Severance</h2>
+            <div class="tagline">
+              <span>Years: 2022–present</span>
+              <span>&middot;</span>
+              <span># of Seasons: 2</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">Office sci‑fi: a procedure splits memories between work and home, creating two versions of self—slow‑burn, eerie, and surprisingly emotional.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">Apple TV+</span></div>
+              <div><span class="label">Rating</span><span class="val">TV-MA</span></div>
+              <div><span class="label">Genre</span><span class="val">Sci‑Fi, Thriller, Drama</span></div>
+              <div><span class="label">Release</span><span class="val">2022</span></div>
+              <div><span class="label">Starring</span><span class="val">Adam Scott, Britt Lower, John Turturro, Patricia Arquette</span></div>
+              <div><span class="label">Status</span><span class="val">Ongoing</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"><a class="svc" href="https://tv.apple.com/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#111"/><circle cx="9" cy="12" r="3" fill="#fff"/><rect x="12.5" y="9" width="6" height="6" fill="#fff"/></svg><span>Apple TV+</span></a></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">Apple TV+</span></div>
+              <div><span class="label">Canada</span> <span class="chip">Apple TV+</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="https://www.rottentomatoes.com/tv/severance" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="https://www.youtube.com/results?search_query=Severance+Apple+TV+trailer" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" data-service="" data-genres="crime, thriller">
+          <div class="poster-wrap">
+            <div class="poster-fallback">AMot</div>
+          </div>
+          <div class="meta">
+            <h2 class="title">A Man on the Inside</h2>
+            <div class="tagline">
+              <span>Years: —</span>
+              <span>&middot;</span>
+              <span># of Seasons: —</span>
+              <span>&middot;</span>
+              <span>Total Episodes: —</span>
+            </div>
+            <p class="desc">(Placeholder) Title added per Andrew’s list. If this is the Bosch‑universe pilot or a different doc/series, we can swap in exact details once confirmed.</p>
+
+            <div class="grid">
+              <div><span class="label">Network</span><span class="val">—</span></div>
+              <div><span class="label">Rating</span><span class="val">—</span></div>
+              <div><span class="label">Genre</span><span class="val">Crime, Thriller</span></div>
+              <div><span class="label">Release</span><span class="val">—</span></div>
+              <div><span class="label">Starring</span><span class="val">—</span></div>
+              <div><span class="label">Status</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Tomatometer 🍅</span><span class="val">—</span></div>
+              <div><span class="label">Avg. Popcornmeter 🍿</span><span class="val">—</span></div>
+            </div>
+
+            <div class="svcs"></div>
+            <div class="watch-where">
+              <div><span class="label">US</span> <span class="chip">—</span></div>
+              <div><span class="label">Canada</span> <span class="chip">—</span></div>
+            </div>
+
+            <div class="actions">
+              <div class="left">
+                
+                <a class="btn" href="#" target="_blank" rel="noopener">Official Page</a>
+              </div>
+              <div class="right">
+                <a class="btn primary" href="#" target="_blank" rel="noopener">▶ Trailer</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+</main>
+
+<footer>
+  <p class="small">Descriptions are concise summaries for family use. 🍅 Tomatometer and 🍿 Popcornmeter slots are shown where available. Streaming availability varies by country.</p>
+</footer>
+
+<script>
+  // Build filter chips
+  const serviceMap = {
+    all: 'All',
+    netflix: 'Netflix',
+    prime: 'Prime Video',
+    freevee: 'Freevee',
+    max: 'Max',
+    hulu: 'Hulu',
+    disneyplus: 'Disney+',
+    appletv: 'Apple TV+',
+    peacock: 'Peacock',
+    bbc: 'BBC',
+    cbc: 'CBC Gem',
+    crave: 'Crave'
+  };
+  const genreList = ['All','Crime','Drama','Mystery','Thriller','Comedy','Documentary','Sci‑Fi','Satire'];
+
+  let selectedService = 'all';
+  let selectedGenre = 'All';
+
+  function makeButton(label, value, group) {
+    const b = document.createElement('button');
+    b.className = 'filter chip' + (value=== (group==='service'?selectedService:selectedGenre) ? ' active':'');
+    b.textContent = label;
+    b.onclick = () => {
+      if(group==='service') { selectedService = value; }
+      else { selectedGenre = value; }
+      refreshFilters();
+      [...document.querySelectorAll(`button.filter[data-group='${group}']`)].forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+    };
+    b.setAttribute('data-group', group);
+    return b;
+  }
+
+  const sRow = document.getElementById('serviceRow');
+  sRow.appendChild(makeButton('All','all','service'));
+  for (const key of Object.keys(serviceMap).filter(k=>k!=='all')) {
+    const btn = makeButton(serviceMap[key], key, 'service');
+    sRow.appendChild(btn);
+  }
+  const gRow = document.getElementById('genreRow');
+  genreList.forEach(g => gRow.appendChild(makeButton(g, g, 'genre')));
+
+  function refreshFilters() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const svcs = card.getAttribute('data-service').split(' ').filter(Boolean);
+      const genres = card.getAttribute('data-genres').toLowerCase();
+      const svcMatch = (selectedService==='all') || svcs.includes(selectedService);
+      const genMatch = (selectedGenre==='All') || genres.includes(selectedGenre.toLowerCase());
+      card.style.display = (svcMatch && genMatch) ? '' : 'none';
+    });
+  }
+  refreshFilters();
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ page_title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root{
+      --brand: {{ theme.brand or "#11b3a4" }};
+      --bg:    {{ theme.bg or "#0e1e21" }};
+      --card:  {{ theme.card or "#CFEDEA" }};
+      --ink:   #eaf7f4;
+      --ink-2: #c9e8e2;
+      --muted: #8fb7b1;
+      --rail:  #0b181b;
+      --chip:  #113438;
+      --shadow: rgba(0,0,0,0.18);
+      --poster-w: 150px;    /* desktop poster width */
+      --poster-w-m: 110px;  /* phone/tablet poster width */
+    }
+
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+
+    /* Sticky app bar (title + filters) */
+    .appbar{
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: saturate(120%) blur(8px);
+      background: linear-gradient(180deg, rgba(14,30,33,.92), rgba(14,30,33,.88));
+      border-bottom: 1px solid #143236;
+    }
+    .appbar-inner{max-width:1100px;margin:0 auto;padding:12px 16px}
+
+    .title{display:flex;align-items:center;gap:10px;margin:0 0 8px}
+    .title h1{margin:0;font-weight:800;letter-spacing:.2px;line-height:1.2;
+      font-size:clamp(22px,3.1vw,34px)}
+    .title .emoji{font-size:1.5em}
+
+    /* Filters */
+    .filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .filters .row{display:flex;gap:8px;align-items:center}
+    .filters label{font-size:.9rem;color:var(--muted)}
+    .filters select,.filters button{
+      background:#0f262a;color:var(--ink);border:1px solid #123238;
+      border-radius:14px;padding:9px 12px;font-size:.95rem;white-space:nowrap
+    }
+    .filters .spacer{flex:1 1 auto}
+    /* Phone: keep filters in one compact row with sideways scroll if needed */
+    @media (max-width:620px){
+      .filters{overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:6px}
+    }
+
+    /* Page container */
+    .wrap{max-width:1100px;margin-inline:auto;padding:14px 16px 80px}
+
+    /* Cards */
+    .card{background:var(--card);color:#0b2524;border-radius:16px;
+      box-shadow:0 6px 20px var(--shadow); padding:12px 14px;margin:10px 0}
+    .card h2{margin:2px 0 6px;font-size:clamp(18px,2.3vw,22px);color:#0a1a19}
+    .meta{font-size:.92rem;color:#0a1a19;opacity:.85;margin-bottom:6px}
+
+    /* Grid: poster | info | actions */
+    .grid{display:grid;grid-template-columns:var(--poster-w) 1fr 220px;gap:14px;align-items:start}
+    .poster .box{
+      width:100%; aspect-ratio: 2 / 3; border-radius:12px; overflow:hidden;
+      background:#b8dedd; box-shadow:0 4px 14px var(--shadow);
+      display:grid; place-items:center; color:#0a1a19; opacity:.7
+    }
+    .poster img{width:100%; height:100%; object-fit:cover; display:block}
+
+    /* Ratings chips */
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 8px}
+    .chip{
+      display:flex;align-items:center;gap:10px;background:white;color:#143334;border-radius:12px;
+      padding:10px 12px;box-shadow:0 2px 8px var(--shadow);min-width:200px
+    }
+    .chip .icon{font-size:1.9rem;line-height:1}
+    .chip b{display:block}
+
+    .desc{font-size:0.96rem;line-height:1.5;color:#0e2727;margin:6px 0 10px}
+
+    /* Info grid (2 columns) */
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
+    .facts div{color:#0b2423;font-size:.97rem}
+    .facts b{color:#093d38}
+
+    /* Right-hand actions */
+    .actions{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+    .actions .label{font-size:.95rem;color:#0a2d2a;margin-bottom:2px}
+    .btn{
+      display:flex;justify-content:space-between;align-items:center;
+      background:#0f262a;color:var(--ink);border:1px solid #123238;
+      padding:11px 12px;border-radius:14px;text-decoration:none;font-weight:600
+    }
+    .btn:hover{background:#133136}
+
+    /* Responsive tweaks */
+    @media (max-width:980px){
+      :root{ --poster-w: 130px; }
+      .grid{grid-template-columns:var(--poster-w) 1fr;grid-template-areas:
+        "poster actions" "poster info";}
+      .poster{grid-area:poster}
+      .actions{grid-area:actions}
+      .info{grid-area:info}
+    }
+    @media (max-width:620px){
+      :root{ --poster-w: var(--poster-w-m); }
+      .chip{min-width:unset}
+      .chip .icon{font-size:1.5rem}
+      .desc{font-size:.95rem}
+      .grid{grid-template-columns:1fr;grid-template-areas:
+        "poster" "actions" "info";}
+      .poster .box{max-width:220px}
+    }
+  </style>
+
+  <script>
+    // simple filter logic (service + genre)
+    function resetFilters(){
+      document.getElementById('svcSel').value = '';
+      document.getElementById('genSel').value = '';
+      applyFilters();
+    }
+    function applyFilters(){
+      const svc = (document.getElementById('svcSel').value || '').toLowerCase();
+      const gen = (document.getElementById('genSel').value || '').toLowerCase();
+      const cards = document.querySelectorAll('[data-svc][data-gen]');
+      cards.forEach(el=>{
+        const s = el.getAttribute('data-svc').toLowerCase();
+        const g = el.getAttribute('data-gen').toLowerCase();
+        const okSvc = !svc || (s && s.includes(svc));
+        const okGen = !gen || (g && g.includes(gen));
+        el.style.display = (okSvc && okGen) ? '' : 'none';
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Sticky header -->
+  <div class="appbar">
+    <div class="appbar-inner">
+      <div class="title">
+        <div class="emoji">🎬</div>
+        <h1>TV Shows for Dad &amp; Sandra — <span style="color:var(--ink-2)">A curated guide from Andrew</span></h1>
+      </div>
+
+      <div class="filters">
+        <div class="row">
+          <label for="svcSel">Service</label>
+          <select id="svcSel" onchange="applyFilters()">
+            <option value="">All services</option>
+            {% for s in all_services %}<option value="{{s}}">{{s}}</option>{% endfor %}
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="genSel">Genre</label>
+          <select id="genSel" onchange="applyFilters()">
+            <option value="">All genres</option>
+            {% for g in all_genres %}<option value="{{g}}">{{g}}</option>{% endfor %}
+          </select>
+        </div>
+
+        <span class="spacer"></span>
+        <button onclick="resetFilters()">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scrollable content below the sticky header -->
+  <div class="wrap">
+    {% for s in shows %}
+    <div class="card" data-svc="{{ s.network or '' }}" data-gen="{{ s.genres or '' }}">
+      <h2>{{ s.title }}</h2>
+      <div class="meta">
+        {{ s.years_text }} · # of Seasons: {{ s.seasons }} · Total Episodes: {{ s.episodes }}
+      </div>
+
+      <div class="grid">
+        <div class="poster">
+          <div class="box">
+            {% if s.poster_src %}
+              <img src="{{ s.poster_src }}" alt="{{ s.title }} poster" />
+            {% else %}
+              <div>No poster</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="info">
+          <div class="chips">
+            <div class="chip">
+              <div class="icon">🍅</div>
+              <div><b>Avg. Tomatometer</b><div>{{ s.tomato }}</div></div>
+            </div>
+            <div class="chip">
+              <div class="icon">🍿</div>
+              <div><b>Avg. Popcornmeter</b><div>{{ s.popcorn }}</div></div>
+            </div>
+          </div>
+
+          <div class="desc">{{ s.description }}</div>
+
+          <div class="facts">
+            <div><b>Years:</b> {{ s.years_text }}</div>
+            <div><b># of Seasons:</b> {{ s.seasons }}</div>
+            <div><b>Total Episodes:</b> {{ s.episodes }}</div>
+            <div><b>Network:</b> {{ s.network or "—" }}</div>
+            <div><b>Rating:</b> {{ s.rating }}</div>
+            <div><b>Genres:</b> {{ s.genres or "—" }}</div>
+            <div><b>Release:</b> {{ s.release }}</div>
+            <div><b>Status:</b> {{ s.status or "—" }}</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <div class="label">Watch / Info</div>
+
+          {% if s.netflix_url %}
+            <a class="btn" href="{{ s.netflix_url }}" target="_blank" rel="noopener">Watch on Netflix ↗</a>
+          {% endif %}
+          {% if s.tmdb_url %}
+            <a class="btn" href="{{ s.tmdb_url }}" target="_blank" rel="noopener">Official Page ↗</a>
+          {% endif %}
+          <a class="btn" href="{{ s.trailer_url }}" target="_blank" rel="noopener">Trailer ↗</a>
+          {% if s.personal_url %}
+            <a class="btn" href="{{ s.personal_url }}" target="_blank" rel="noopener">Personal notes (Google Page) ↗</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
